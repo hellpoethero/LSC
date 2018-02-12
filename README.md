@@ -5,9 +5,9 @@ We are researchers and students in Data Science and Knowledge Discovery Laborato
 
 We implement this code based on the method proposed in the paper <a href="https://pdfs.semanticscholar.org/70a0/4587a53f3dd1923ec6bcb0f31bed033563af.pdf">Lifelong Learning for Sentiment Classification</a> by Zhiyuan Chen and Bing Liu.
 
-##Requirement
+## Requirement
 To run this code, you need:
 - Python 2.7
 
-##Run
+## Run
 In the root directory, run `python -m acl2015.example.Example01`
