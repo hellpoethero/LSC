@@ -11,14 +11,15 @@ class PastInformationStore:
     def read_from_folder(self, folder_name):
         for subFolderName in os.listdir(folder_name):
             filename = folder_name + "/" + subFolderName+"/"+subFolderName
-            task = Task.Task()
-            with open(filename+".vocab", 'r') as vocabFile:
-                task.import_vocab(vocabFile)
-            with open(filename+".prob", 'r') as probFile:
-                task.import_prob(probFile)
-            with open(filename+".appear", 'r') as appearFile:
-                task.import_appear(appearFile)
-            self.tasks.append(task)
-        print len(self.tasks)
+            self.read_from_sub_folder(filename)
+        print 'number of task: ', len(self.tasks)
         print self.tasks[0].values[0]
-        print self.tasks[0].values[1]
+        print self.tasks[0].values[88]
+
+    def read_from_sub_folder(self, filename):
+        task = Task.Task(filename)
+        # with open(filename+".vocab", 'r') as vocabFile:
+        #     task.import_vocab(vocabFile)
+        # with open(filename+".docs", 'r') as docsFile:
+        #     task.import_docs(docsFile)
+        self.tasks.append(task)

@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf32edb1-628a-4f60-a55f-5bfc8c969743" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/acl2014/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/acl2015/components/Document.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/acl2015/components/KnowledgeBasedLearner.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/acl2015/components/ObjectiveFunction.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/acl2015/components/ObjectiveFunctionDerivatives.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/sample_data/acl2015_nb/AlarmClock/AlarmClock.docs" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/acl2015/components/KnowledgeBase.py" afterPath="$PROJECT_DIR$/acl2015/components/KnowledgeBase.py" />
+      <change beforePath="$PROJECT_DIR$/acl2015/components/PastInformationStore.py" afterPath="$PROJECT_DIR$/acl2015/components/PastInformationStore.py" />
+      <change beforePath="$PROJECT_DIR$/acl2015/components/Task.py" afterPath="$PROJECT_DIR$/acl2015/components/Task.py" />
+      <change beforePath="$PROJECT_DIR$/sample_data/acl2015_nb/AlarmClock/AlarmClock.vocab" afterPath="$PROJECT_DIR$/sample_data/acl2015_nb/AlarmClock/AlarmClock.vocab" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +37,8 @@
       <file leaf-file-name="PastInformationStore.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/acl2015/components/PastInformationStore.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="160">
+              <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -42,51 +49,20 @@
       <file leaf-file-name="KnowledgeMiner.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeMiner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-              <folding />
+            <state relative-caret-position="102">
+              <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Example01.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/acl2015/example/Example01.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Description.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample_data/Description.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="102">
-                <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/acl2014/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Task.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Task.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/acl2015/components/Task.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="23" />
+            <state relative-caret-position="194">
+              <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -95,8 +71,48 @@
       <file leaf-file-name="KnowledgeBase.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeBase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="49" lean-forward="false" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+            <state relative-caret-position="816">
+              <caret line="48" column="22" lean-forward="true" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectiveFunction.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/acl2015/components/ObjectiveFunction.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Document.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/acl2015/components/Document.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KnowledgeBasedLearner.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeBasedLearner.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectiveFunctionDerivatives.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/acl2015/components/ObjectiveFunctionDerivatives.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -114,6 +130,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>inde</find>
+      <find>spl</find>
+      <find>pri</find>
+      <find>print</find>
+      <find>88</find>
+      <find>import Document\n\n\nclass Task\:\n    def __init__\(self\)\:\n        self\.words \= \[\]\n        self\.docs \= \[\]\n        self\.values \= \[\]\n\n    def import_vocab\(self\, vocab_file\)\:\n        for line in vocab_file\:\n            word \= line\.split\(\&quot;\:\&quot;\)\[1\]\.rstrip\(\)\n            value \= WordValue\(\)\n\n            self\.words\.append\(word\)\n            self\.values\.append\(value\)\n\n    def import_prob\(self\, prob_file\)\:\n        i \= 0\n        for line in prob_file\:\n            pos \= line\.split\(\&quot;\:\&quot;\)\[0\]\n            neg \= line\.split\(\&quot;\:\&quot;\)\[1\]\n\n            self\.values\[i\]\.prob_pos \= float\(pos\)\n            self\.values\[i\]\.prob_neg \= float\(neg\)\n            i \= i\+1\n\n    def import_appear\(self\, appear_file\)\:\n        i \= 0\n        for line in appear_file\:\n            pos \= line\.split\(\&quot;\:\&quot;\)\[0\]\n            neg \= line\.split\(\&quot;\:\&quot;\)\[1\]\n\n            self\.values\[i\]\.appear_pos \= int\(pos\)\n            self\.values\[i\]\.appear_neg \= int\(neg\)\n            i \= i\+1\n\n    def import_docs\(self\, docs_file\)\:\n        for line in docs_file\:\n            label \= line\.rstrip\(\)\.split\(\&quot;\:\&quot;\)\[0\]\n            sentence \= line\.rstrip\(\)\.split\(\&quot;\:\&quot;\)\[1\]\n            doc \= Document\.Document\(sentence\, label\)\n            self\.docs\.append\(doc\)\n            if doc\.label \=\= \'pos\'\:\n                for word in doc\.words\:\n                    self\.values\[int\(word\)\]\.appear_pos \+\= 1\n            else\:\n                for word in doc\.words\:\n                    self\.values\[int\(word\)\]\.appear_neg \+\= 1\n\n\nclass WordValue\:\n    def __init__\(self\)\:\n        self\.prob_pos \= 0\n        self\.prob_neg \= 0\n        self\.appear_pos \= 0\n        self\.appear_neg \= 0\n        \n    def calculate_prob\(self\, smoothing\, vocab_size\)\:\n        self\.prob_pos \= \(smoothing \+ self\.appear_pos\) \/ \(smoothing\*vocab_size\+\)\n\n    def __str__\(self\)\:\n        return \&quot;word value\: \%s \%s \%s \%s\&quot; \% \(self\.prob_pos\, self\.prob_neg\, self\.appear_pos\, self\.appear_neg\)\n</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -126,15 +147,22 @@
         <option value="$PROJECT_DIR$/acl2015/components/Word.py" />
         <option value="$PROJECT_DIR$/acl2015/example/__init__.py" />
         <option value="$PROJECT_DIR$/acl2015/components/KnowledgeMiner.py" />
-        <option value="$PROJECT_DIR$/acl2015/components/Task.py" />
-        <option value="$PROJECT_DIR$/acl2015/components/PastInformationStore.py" />
-        <option value="$PROJECT_DIR$/acl2015/components/KnowledgeBase.py" />
         <option value="$PROJECT_DIR$/acl2015/example/Example01.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/sample_data/description.txt" />
         <option value="$PROJECT_DIR$/sample_data/data_description.md" />
         <option value="$PROJECT_DIR$/sample_data/README.md" />
+        <option value="$PROJECT_DIR$/acl2015/components/ObjectiveFunctionDerivatives.py" />
+        <option value="$PROJECT_DIR$/acl2015/components/KnowledgeBasedLearner.py" />
+        <option value="$PROJECT_DIR$/acl2015/components/ObjectiveFunction.py" />
+        <option value="$PROJECT_DIR$/acl2015/components/Domain.py" />
+        <option value="$PROJECT_DIR$/acl2015/components/Document.py" />
+        <option value="$PROJECT_DIR$/acl2015/components/KnowledgeBase.py" />
+        <option value="$PROJECT_DIR$/sample_data/acl2015_nb/AlarmClock/AlarmClock.docs" />
+        <option value="$PROJECT_DIR$/sample_data/acl2015_nb/AlarmClock/AlarmClock.vocab" />
+        <option value="$PROJECT_DIR$/acl2015/components/PastInformationStore.py" />
+        <option value="$PROJECT_DIR$/acl2015/components/Task.py" />
       </list>
     </option>
   </component>
@@ -145,10 +173,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-7" />
+    <option name="width" value="772" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -197,17 +224,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="LSC" type="b2602c69:ProjectViewProjectNode" />
               <item name="LSC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LSC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LSC" type="462c0819:PsiDirectoryNode" />
-              <item name="acl2014" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LSC" type="b2602c69:ProjectViewProjectNode" />
@@ -243,7 +266,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,12 +275,13 @@
     <property name="settings.editor.selected.configurable" value="RSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\Hoc tap\NCKH\KT Lab\LifeLongLearning\code\LSC" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Hoc tap\NCKH\KT Lab\LifeLongLearning\code\LSC\sample_data\acl2015_nb\AlarmClock" />
       <recent name="G:\Hoc tap\NCKH\KT Lab\LifeLongLearning\code\LSC\acl2014" />
       <recent name="G:\Hoc tap\NCKH\KT Lab\LifeLongLearning\code\LSC\sample_data" />
+      <recent name="G:\Hoc tap\NCKH\KT Lab\LifeLongLearning\code\LSC" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\Hoc tap\NCKH\KT Lab\LifeLongLearning\code\LSC" />
     </key>
   </component>
@@ -301,16 +324,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2700454" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3223684" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19213313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -322,7 +347,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -337,6 +361,48 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeBase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/ObjectiveFunction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeBasedLearner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/ObjectiveFunctionDerivatives.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeMiner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/acl2015/components/PastInformationStore.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -351,7 +417,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -393,7 +461,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -516,7 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -524,40 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeMiner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/acl2015/components/Task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/acl2015/components/PastInformationStore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeBase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="49" lean-forward="false" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -572,18 +607,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_data/data_description.md" />
+    <entry file="file://$PROJECT_DIR$/sample_data/Description.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="102">
+            <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2014/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="136">
-            <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/acl2015/components/ObjectiveFunctionDerivatives.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -595,29 +645,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample_data/data_description.md">
+    <entry file="file://$PROJECT_DIR$/acl2015/components/Domain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="75" />
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample_data/Description.md">
+    <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeBasedLearner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/Document.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/ObjectiveFunction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeBase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="22" lean-forward="true" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="102">
-            <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <first_editor relative-caret-position="204">
+            <caret line="12" column="63" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="63" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/acl2014/__init__.py">
+    <entry file="file://$PROJECT_DIR$/sample_data/acl2015_nb/AlarmClock/AlarmClock.vocab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="285">
+          <caret line="263" column="10" lean-forward="false" selection-start-line="263" selection-start-column="10" selection-end-line="263" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample_data/acl2015_nb/AlarmClock/AlarmClock.docs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="73" lean-forward="false" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/KnowledgeMiner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/PastInformationStore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="19" column="33" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl2015/components/Task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
           <folding />
         </state>
       </provider>

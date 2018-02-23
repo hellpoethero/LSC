@@ -2,10 +2,11 @@ class KnowledgeBase:
     def __init__(self, pis):
         self.words = []
         self.values = []
+
         self.convert(pis)
-        print(self.words)
-        print(self.values[0])
-        print(self.values[1])
+        # print(self.words)
+        # print(self.values[0])
+        # print(self.values[1])
 
     def convert(self, pis):
         for task in pis.tasks:
@@ -46,4 +47,4 @@ class WordKnowledge:
         self.dom_neg = 0
 
     def __str__(self):
-        return "%s %s %s %s" % (self.doc_pos, self.doc_neg, self.dom_pos, self.dom_neg)
+        return "word knowledge: %s %s %s %s" % (self.doc_pos, self.doc_neg, self.dom_pos, self.dom_neg)
