@@ -13,13 +13,7 @@ class PastInformationStore:
             filename = folder_name + "/" + subFolderName+"/"+subFolderName
             self.read_from_sub_folder(filename)
         print 'number of task: ', len(self.tasks)
-        print self.tasks[0].values[0]
-        print self.tasks[0].values[88]
 
     def read_from_sub_folder(self, filename):
         task = Task.Task(filename)
-        # with open(filename+".vocab", 'r') as vocabFile:
-        #     task.import_vocab(vocabFile)
-        # with open(filename+".docs", 'r') as docsFile:
-        #     task.import_docs(docsFile)
         self.tasks.append(task)

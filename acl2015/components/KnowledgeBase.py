@@ -1,12 +1,7 @@
 class KnowledgeBase:
-    def __init__(self, pis):
+    def __init__(self):
         self.words = []
         self.values = []
-
-        self.convert(pis)
-        # print(self.words)
-        # print(self.values[0])
-        # print(self.values[1])
 
     def convert(self, pis):
         for task in pis.tasks:
@@ -17,34 +12,27 @@ class KnowledgeBase:
                 if word not in self.words:
                     self.words.append(word)
                     value = WordKnowledge()
-                    self.values.append(value)
 
-                    value.doc_pos += values_task[i].appear_pos
-                    value.doc_neg += values_task[i].appear_neg
-                    if values_task[i].prob_pos > values_task[i].prob_pos:
-                        value.dom_pos += 1
-                    else:
-                        value.dom_neg += 1
+                    self.values.append(value)
                 else:
                     index = self.words.index(word)
                     value = self.values[index]
 
-                    value.doc_pos += values_task[i].appear_pos
-                    value.doc_neg += values_task[i].appear_neg
-                    if values_task[i].prob_pos > values_task[i].prob_pos:
-                        value.dom_pos += 1
-                    else:
-                        if values_task[i].prob_pos < values_task[i].prob_pos:
-                            value.dom_neg += 1
+                value.doc[0] += values_task[i].appear[0]
+                value.doc[1] += values_task[i].appear[1]
+
+                if values_task[i].prob[0] > values_task[i].prob[1]:
+                    value.dom[0] += 1
+                elif values_task[i].prob[0] < values_task[i].prob[1]:
+                    value.dom[1] += 1
                 i += 1
+        print "Init Knowledge Base"
 
 
 class WordKnowledge:
     def __init__(self):
-        self.doc_pos = 0
-        self.doc_neg = 0
-        self.dom_pos = 0
-        self.dom_neg = 0
+        self.doc = [0, 0]
+        self.dom = [0, 0]
 
     def __str__(self):
-        return "word knowledge: %s %s %s %s" % (self.doc_pos, self.doc_neg, self.dom_pos, self.dom_neg)
+        return "word knowledge: %s %s %s %s" % (self.doc[0], self.doc[1], self.dom[0], self.dom[1])

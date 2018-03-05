@@ -3,14 +3,18 @@ import Document
 
 class Task:
     def __init__(self, filename):
+        self.name = filename.split("/")[-1:][0]
         self.words = []
         self.docs = []
         self.values = []
-        with open(filename+".vocab", 'r') as vocabFile:
+        self.label_counts = [0, 0]
+        with open(filename + ".vocab", 'r') as vocabFile:
             self.import_vocab(vocabFile)
-        with open(filename+".docs", 'r') as docsFile:
+        with open(filename + ".docs", 'r') as docsFile:
             self.import_docs(docsFile)
         self.calculate_prob()
+        self.label_prob = [float(self.label_counts[0]) / float(self.label_counts[0] + self.label_counts[1]),
+                           float(self.label_counts[1]) / float(self.label_counts[0] + self.label_counts[1])]
 
     def import_vocab(self, vocab_file):
         for line in vocab_file:
@@ -20,59 +24,39 @@ class Task:
             self.words.append(word)
             self.values.append(value)
 
-    def import_prob(self, prob_file):
-        i = 0
-        for line in prob_file:
-            pos = line.split(":")[0]
-            neg = line.split(":")[1]
-
-            self.values[i].prob_pos = float(pos)
-            self.values[i].prob_neg = float(neg)
-            i = i+1
-
-    def import_appear(self, appear_file):
-        i = 0
-        for line in appear_file:
-            pos = line.split(":")[0]
-            neg = line.split(":")[1]
-
-            self.values[i].appear_pos = int(pos)
-            self.values[i].appear_neg = int(neg)
-            i = i+1
-
     def import_docs(self, docs_file):
         for line in docs_file:
             label = line.rstrip().split(":")[0]
-            sentence = line.rstrip().split(":")[1]
-            doc = Document.Document(sentence, label)
-            self.docs.append(doc)
-            if doc.label == 'pos':
+            if label != 'neu':
+                sentence = line.rstrip().split(":")[1]
+                doc = Document.Document(sentence, label)
+                self.docs.append(doc)
+                if doc.label == 'pos':
+                    label_num = 0  # positive label
+                elif doc.label == 'neg':
+                    label_num = 1  # negative label
+                self.label_counts[label_num] += 1
                 for word in doc.words:
-                    self.values[int(word)].appear_pos += 1
-            else:
-                for word in doc.words:
-                    self.values[int(word)].appear_neg += 1
+                    if word != '':
+                        self.values[int(word)].appear[label_num] += 1
 
     def calculate_prob(self):
-        total_appear_pos = 0
-        total_appear_neg = 0
+        total_appear = [0, 0]
         for word in self.values:
-            total_appear_pos += word.appear_pos
-            total_appear_neg += word.appear_neg
+            total_appear[0] += word.appear[0]
+            total_appear[1] += word.appear[1]
         for word in self.values:
-            word.calculate_prob(1, len(self.words), total_appear_pos, total_appear_neg)
+            word.calculate_prob(1, len(self.words), total_appear)
 
 
 class WordValue:
     def __init__(self):
-        self.prob_pos = 0
-        self.prob_neg = 0
-        self.appear_pos = 0
-        self.appear_neg = 0
+        self.prob = [0, 0]
+        self.appear = [0, 0]
 
-    def calculate_prob(self, smoothing, vocab_size, total_appear_pos, total_appear_neg):
-        self.prob_pos = float(smoothing + self.appear_pos) / float(smoothing * vocab_size + total_appear_pos)
-        self.prob_neg = float(smoothing + self.appear_neg) / float(smoothing * vocab_size + total_appear_neg)
+    def calculate_prob(self, smoothing, vocab_size, total_appear):
+        for i in [0, 1]:
+            self.prob[i] = float(smoothing + self.appear[i]) / float(smoothing * vocab_size + total_appear[i])
 
     def __str__(self):
-        return "word value: %s %s %s %s" % (self.prob_pos, self.prob_neg, self.appear_pos, self.appear_neg)
+        return "word value: %s %s %s %s" % (self.prob[0], self.prob[1], self.appear[0], self.appear[1])
