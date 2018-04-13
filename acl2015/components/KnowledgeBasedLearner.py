@@ -1,40 +1,72 @@
 class KnowledgeBaseLearner:
-    def __init__(self, km, smoothing, learning_rate, threshold_1, threshold_2, reg_co):
-        self.task = km.get_current_task()
+    def __init__(self, target, km, smoothing, learning_rate, threshold_1, threshold_2, reg_co):
+        self.current_task = km.get_current_task()
         self.kb = km.kb
-        self.label_prob = self.task.label_prob
+        self.target = target
+        self.label_prob = self.target.label_prob
         self.smoothing = smoothing
         self.virtual_counts = []
-        self.label_prob = self.task.label_prob
-        self.docs = self.task.docs
-        self.vocab_size = len(self.task.words)
+        self.starting_points = []
+        self.label_prob = self.target.label_prob
+        self.docs = self.target.docs
+        self.vocab_size = len(self.target.words)
         self.learning_rate = learning_rate
         self.vt = []
         self.vs = []
         self.reg_co = reg_co
 
         index = 0
-        for word in self.task.words:
+        document_knowledge = []
+        domain_knowledge = []
+        for word in self.kb.words:
+            if word in self.current_task.words:
+                word_index = self.current_task.words.index(word)
+                temp = []
+                for i in [0, 1]:
+                    temp.append(self.kb.values[index].doc[i] - self.current_task.values[word_index].appear[i])
+                # print word, temp, self.kb.values[index].doc, self.task.values[word_index].appear
+                document_knowledge.append(temp)
+
+                temp1 = [self.kb.values[index].dom[0], self.kb.values[index].dom[1]]
+                if self.current_task.values[word_index].prob[0] > self.current_task.values[word_index].prob[1]:
+                    temp1[0] -= 1
+                else:
+                    temp1[1] -= 1
+                domain_knowledge.append(temp1)
+                # print word, temp1, self.kb.values[index].dom
+            else:
+                document_knowledge.append(self.kb.values[index].doc)
+                domain_knowledge.append(self.kb.values[index].dom)
+            index += 1
+
+        index = 0
+        for word in self.target.words:
             value = []
-            a = float(self.task.values[index].prob[0]) / float(self.task.values[index].prob[1])
-            b = float(self.task.values[index].prob[1]) / float(self.task.values[index].prob[0])
-            # print word, self.task.values[index].prob, self.task.values[index].appear
+            a = float(self.target.values[index].prob[0]) / float(self.target.values[index].prob[1])
+            b = float(self.target.values[index].prob[1]) / float(self.target.values[index].prob[0])
+            # print word, self.task.values[index].prob, self.task.values[index].appear, a, b
             if a >= threshold_1 or b >= threshold_1:
                 self.vt.append(index)
-                # print word, self.task.values[index].prob, a
-            dom = self.kb.values[self.kb.words.index(word)].dom
-            print word, dom
-            if self.task.values[index].prob[1] > self.task.values[index].prob[0]:
-                if dom[0]-1 >= threshold_2 or dom[1] >= threshold_2:
+                # print word, self.task.values[index].prob,
+            dom = domain_knowledge[self.kb.words.index(word)]
+            # print word, dom
+            if self.target.values[index].prob[1] > self.target.values[index].prob[0]:
+                if dom[0] >= threshold_2 or dom[1] >= threshold_2:
                     self.vs.append(index)
             else:
-                if dom[0] >= threshold_2 or dom[1]-1 >= threshold_2:
+                if dom[0] >= threshold_2 or dom[1] >= threshold_2:
                     self.vs.append(index)
             for i in [0, 1]:
                 value.append(self.kb.values[self.kb.words.index(word)].doc[i])
             self.virtual_counts.append(value)
+            self.starting_points.append(value)
             index += 1
         print 'Number of word: ', len(self.virtual_counts)
+
+        # self.calculate_vs()
+
+    def set_target(self):
+        pass
 
     def objective_function(self, doc, word_freq):
         virtual_probs = self.calculate_prob()
@@ -75,7 +107,7 @@ class KnowledgeBaseLearner:
         for word in word_set:
             word_freq.append(float(doc.words.count(word)) / doc_len)
 
-        print word_set
+        # print word_set
         # print self.objective_function(doc, word_freq)
         index = 0
         for word in word_set:
@@ -111,7 +143,7 @@ class KnowledgeBaseLearner:
                 derivatives_pos = (a1 + b1 * c1) / (1 + b1 * g) - c1 / g
                 derivatives_neg = (a2 * g + c2) / (b2 + g) - (a2 + c2 / g)
 
-            print a1, b1, c1, g, freq, virtual_count, derivatives_pos, derivatives_neg
+            # print a1, b1, c1, g, freq, virtual_count, derivatives_pos, derivatives_neg
             # print "round "+str(i)+":", self.virtual_counts[int(word)], derivatives_pos, derivatives_neg
 
             # for word in word_set:
@@ -155,7 +187,7 @@ class KnowledgeBaseLearner:
         pos = float(self.smoothing * self.vocab_size + pos_sum)
         neg = float(self.smoothing * self.vocab_size + neg_sum)
 
-        print pos_sum, neg_sum
+        # print pos_sum, neg_sum
 
         if label_num == 0:
             result = doc_len * (pos / neg) ** (doc_len - 1) * (1 / neg)
@@ -188,7 +220,7 @@ class KnowledgeBaseLearner:
         for value in self.virtual_counts:
             total_virtual_count[0] += value[0]
             total_virtual_count[1] += value[1]
-        print total_virtual_count
+        # print total_virtual_count
         for value in self.virtual_counts:
             virtual_prob = []
             for i in [0, 1]:
@@ -196,3 +228,65 @@ class KnowledgeBaseLearner:
                     float(self.smoothing + value[i]) / float(self.smoothing * self.vocab_size + total_virtual_count[i]))
             virtual_probs.append(virtual_prob)
         return virtual_probs
+
+    def calculate_vt(self):
+        a = 0.5 * self.reg_co
+        b = 0
+        for word_index in self.vt:
+            # print value, self.task.words[value], self.virtual_counts[value], self.task.values[value]
+            for i in [0, 1]:
+                print self.virtual_counts[word_index][i], self.target.values[word_index].appear[i],\
+                    self.virtual_counts[word_index][i] - self.target.values[word_index].appear[i]
+                b += (self.virtual_counts[word_index][i] - self.target.values[word_index].appear[i]) ** 2
+        print a * b
+
+    def calculate_vs(self):
+        a = 0.5 * self.reg_co
+        b = 0
+        for word_index in self.vs:
+            dom = self.kb.values[self.kb.words.index(self.target.words[word_index])].dom
+            c = float(dom[0]) / float(dom[0] + dom[1])
+            print self.target.words[word_index], dom, c, self.virtual_counts[word_index], self.starting_points[word_index]
+            b += (float(self.virtual_counts[word_index][0]) - c * float(self.starting_points[word_index][0])) ** 2
+            b += (float(self.virtual_counts[word_index][1]) - (1 - c) * float(self.starting_points[word_index][1])) ** 2
+            print (float(self.virtual_counts[word_index][0]) - c * float(self.starting_points[word_index][0])),\
+                (float(self.virtual_counts[word_index][1]) - (1 - c) * float(self.starting_points[word_index][1]))
+            print '---------------------'
+        print a * b
+
+    def calculate_label(self, doc):
+        words = doc.rstrip().split(" ")
+        word_set = set(words)
+        word_freq = []
+        doc_len = len(words)
+        for word in word_set:
+            word_freq.append(float(words.count(word)) / doc_len)
+
+        virtual_probs = self.calculate_prob()
+        total = [self.label_prob[0], self.label_prob[1]]
+
+        # print self.task.words
+        # print word_set
+        for label_index in [0, 1]:
+            i = 0
+            for word in word_set:
+                if word in self.target.words:
+                    # print word, self.task.words.index(word)
+                    total[label_index] *= virtual_probs[self.target.words.index(word)][label_index] ** word_freq[i]
+            i += 1
+
+        # print total[0], total[1]
+        if total[0] + total[1] > 0:
+            pos = total[0] / (total[0] + total[1])
+            neg = total[1] / (total[0] + total[1])
+
+            print pos, neg
+            if pos > neg:
+                # print 'pos'
+                return 'pos'
+            else:
+                # print 'neg'
+                return 'neg'
+        else:
+            # print 'neu'
+            return 'neu'

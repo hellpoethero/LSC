@@ -4,5 +4,6 @@ class Document:
             self.words = sentence.split(' ')
         else:
             self.words = []
+        self.sentence = sentence
         self.label = label
         pass

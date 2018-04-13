@@ -2,12 +2,36 @@ import Document
 
 
 class Task:
-    def __init__(self, filename):
-        self.name = filename.split("/")[-1:][0]
+    def __init__(self):
+        self.name = ""
         self.words = []
         self.docs = []
         self.values = []
         self.label_counts = [0, 0]
+        self.label_prob = []
+
+    def import_target(self, docs, words):
+        self.docs = docs
+        self.words = words
+        for word in words:
+            value = WordValue()
+            self.values.append(value)
+
+        for doc in docs:
+            if doc.label == 'pos':
+                label_num = 0  # positive label
+            elif doc.label == 'neg':
+                label_num = 1  # negative label
+            self.label_counts[label_num] += 1
+            for word in doc.words:
+                self.values[int(word)].appear[label_num] += 1
+
+        self.calculate_prob()
+        self.label_prob = [float(self.label_counts[0]) / float(self.label_counts[0] + self.label_counts[1]),
+                           float(self.label_counts[1]) / float(self.label_counts[0] + self.label_counts[1])]
+
+    def import_file(self, filename):
+        self.name = filename.split("/")[-1:][0]
         with open(filename + ".vocab", 'r') as vocabFile:
             self.import_vocab(vocabFile)
         with open(filename + ".docs", 'r') as docsFile:

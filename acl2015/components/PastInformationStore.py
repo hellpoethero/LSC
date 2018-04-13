@@ -15,5 +15,6 @@ class PastInformationStore:
         print 'number of task: ', len(self.tasks)
 
     def read_from_sub_folder(self, filename):
-        task = Task.Task(filename)
+        task = Task.Task()
+        task.import_file(filename)
         self.tasks.append(task)
