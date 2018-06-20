@@ -19,11 +19,12 @@ from ..components import KnowledgeMiner, ObjectiveFunction
 #         length += len(doc.words)
 #     print length, label_counts
 
-dataPath = 'sample_data/acl2015_nb'
+dataPath = 'sample_data/acl2015_nb_5_test'
 km = KnowledgeMiner.KnowledgeMiner(dataPath)
 for task in km.pis.tasks:
     of = ObjectiveFunction.ObjectiveFunction(task)
     ofs = of.calculate()
     sd = SelectDocument.SelectDocument()
-    sd.select(task, ofs, "sample_data/acl2015_nb_2")
+    # sd.select(task, ofs, "sample_data/acl2015_nb_2")
+    sd.select_random(task, "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100")
     # break

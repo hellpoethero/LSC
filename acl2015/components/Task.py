@@ -6,6 +6,7 @@ class Task:
         self.name = ""
         self.words = []
         self.docs = []
+        self.docs_set = []
         self.values = []
         self.label_counts = [0, 0]
         self.label_prob = []
@@ -34,8 +35,9 @@ class Task:
         self.name = filename.split("/")[-1:][0]
         with open(filename + ".vocab", 'r') as vocabFile:
             self.import_vocab(vocabFile)
-        with open(filename + ".docs", 'r') as docsFile:
-            self.import_docs(docsFile)
+        for i in range(0, 5):
+            with open(filename + "_test_"+str(i)+".docs", 'r') as docsFile:
+                self.import_docs(docsFile)
         self.calculate_prob()
         self.label_prob = [float(self.label_counts[0]) / float(self.label_counts[0] + self.label_counts[1]),
                            float(self.label_counts[1]) / float(self.label_counts[0] + self.label_counts[1])]
@@ -49,20 +51,24 @@ class Task:
             self.values.append(value)
 
     def import_docs(self, docs_file):
+        temp_docs = []
         for line in docs_file:
-            label = line.rstrip().split(":")[0]
-            if label != 'neu':
-                sentence = line.rstrip().split(":")[1]
-                doc = Document.Document(sentence, label)
-                self.docs.append(doc)
-                if doc.label == 'pos':
-                    label_num = 0  # positive label
-                elif doc.label == 'neg':
-                    label_num = 1  # negative label
-                self.label_counts[label_num] += 1
-                for word in doc.words:
-                    if word != '':
-                        self.values[int(word)].appear[label_num] += 1
+            if len(line.rstrip().split(":")) > 1:
+                label = line.rstrip().split(":")[0]
+                if label != 'neu':
+                    sentence = line.rstrip().split(":")[1]
+                    doc = Document.Document(sentence, label)
+                    self.docs.append(doc)
+                    temp_docs.append(doc)
+                    if doc.label == 'pos':
+                        label_num = 0  # positive label
+                    elif doc.label == 'neg':
+                        label_num = 1  # negative label
+                    self.label_counts[label_num] += 1
+                    for word in doc.words:
+                        if word != '':
+                            self.values[int(word)].appear[label_num] += 1
+        self.docs_set.append(temp_docs)
 
     def calculate_prob(self):
         total_appear = [0, 0]

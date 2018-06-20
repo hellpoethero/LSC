@@ -2,15 +2,15 @@ import os
 from random import shuffle
 
 fold = 5
-inputFolder1 = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_1"
-inputFolder2 = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_2"
-outputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_3"
+inputFolder1 = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100_1"
+inputFolder2 = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100_2"
+outputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100_3"
 inputData = []
 inputName = []
 outputFiles = []
 
 for filename in os.listdir(inputFolder2):
-    filename = inputFolder2 + "/" + filename
+    filename = inputFolder2 + "/" + filename + "/" + filename + ".txt"
     data = []
     with open(filename, "r") as inputFile:
         for line in inputFile:

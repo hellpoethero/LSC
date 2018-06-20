@@ -1,13 +1,18 @@
 import os
 from os.path import basename
 
-inputFolder = "abc"
+inputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100"
+outputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100_2/"
 outputFiles = []
 
 for subFolder in os.listdir(inputFolder):
-    outputFileName = "abc_1/" + basename(inputFolder + "/" + subFolder)
-    outputFiles.append(outputFileName)
-    with open(outputFileName, "w") as outputFile:
+    domain_name = basename(inputFolder + "/" + subFolder).split('.')[0]
+    outputFileName = outputFolder + domain_name
+    outputFiles.append(outputFileName + "/" + domain_name + ".txt")
+    if not os.path.exists(outputFileName):
+        os.makedirs(outputFileName)
+    print outputFileName
+    with open(outputFileName + "/" + domain_name + ".txt", "w") as outputFile:
         outputFile.write("")
 
 print len(outputFiles)

@@ -3,9 +3,8 @@ import Task
 
 
 class PastInformationStore:
-    def __init__(self, folder_name):
+    def __init__(self):
         self.tasks = []
-        self.read_from_folder(folder_name)
         pass
 
     def read_from_folder(self, folder_name):

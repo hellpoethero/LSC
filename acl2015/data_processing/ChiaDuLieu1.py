@@ -2,8 +2,8 @@ import os
 from random import shuffle
 
 fold = 5
-inputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc"
-outputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_1"
+inputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100"
+outputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100_1"
 inputData = []
 inputName = []
 outputFiles = []
