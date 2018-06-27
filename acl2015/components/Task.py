@@ -33,11 +33,17 @@ class Task:
 
     def import_file(self, filename):
         self.name = filename.split("/")[-1:][0]
-        with open(filename + ".vocab", 'r') as vocabFile:
-            self.import_vocab(vocabFile)
+        # comment vao de chay thu cach khac!
+        # with open(filename + ".vocab", 'r') as vocabFile:
+        #     self.import_vocab(vocabFile)
+        # for i in range(0, 5):
+        #     with open(filename + "_test_"+str(i)+".docs", 'r') as docsFile:
+        #         self.import_docs(docsFile)
+
         for i in range(0, 5):
-            with open(filename + "_test_"+str(i)+".docs", 'r') as docsFile:
-                self.import_docs(docsFile)
+            with open(filename + "_test_"+str(i)+".txt", 'r') as txtFile:
+                self.import_txt(txtFile)
+
         self.calculate_prob()
         self.label_prob = [float(self.label_counts[0]) / float(self.label_counts[0] + self.label_counts[1]),
                            float(self.label_counts[1]) / float(self.label_counts[0] + self.label_counts[1])]
@@ -69,6 +75,32 @@ class Task:
                         if word != '':
                             self.values[int(word)].appear[label_num] += 1
         self.docs_set.append(temp_docs)
+
+    def import_txt(self, txt_file):
+        temp_txt = []
+        for line in txt_file:
+            if len(line.rstrip().split("\t")) > 1:
+                label = line.rstrip().split("\t")[0]
+                if label != '__label__neu':
+                    sentence = line.rstrip().split("\t")[1]
+                    doc = Document.Document(sentence, label)
+                    self.docs.append(doc)
+                    temp_txt.append(doc)
+                    label_num = 0
+                    if doc.label == '__label__pos':
+                        label_num = 0  # positive label
+                    elif doc.label == '__label__neg':
+                        label_num = 1  # negative label
+                    self.label_counts[label_num] += 1
+                    for word in doc.words:
+                        if word != '':
+                            if word not in self.words:
+                                value = WordValue()
+                                self.words.append(word)
+                                self.values.append(value)
+                            self.values[int(word)].appear[label_num] += 1
+
+        pass
 
     def calculate_prob(self):
         total_appear = [0, 0]

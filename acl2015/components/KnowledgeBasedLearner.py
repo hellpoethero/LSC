@@ -178,7 +178,6 @@ class KnowledgeBaseLearner:
             # for word in word_set:
             #     print self.virtual_counts[int(word)]
 
-
             pos_flag = 0
             neg_flag = 0
             if virtual_count[0] - self.learning_rate * derivatives_pos > 0:
@@ -203,6 +202,7 @@ class KnowledgeBaseLearner:
             i += 1
             # break
 
+    # cong thuc 4, tinh g(X)
     def g(self, doc_len):
         pos = float(self.smoothing * self.vocab_size + self.sum_virtual_counts(0))
         neg = float(self.smoothing * self.vocab_size + self.sum_virtual_counts(1))
@@ -211,6 +211,7 @@ class KnowledgeBaseLearner:
         result = a ** doc_len
         return result
 
+    # dao ham cong thuc 4 g(X)
     def g_derivatives(self, label_num, doc_len):
         pos_sum = self.sum_virtual_counts(0)
         neg_sum = self.sum_virtual_counts(1)
@@ -265,7 +266,7 @@ class KnowledgeBaseLearner:
         for word_index in self.vt:
             # print value, self.task.words[value], self.virtual_counts[value], self.task.values[value]
             for i in [0, 1]:
-                print self.virtual_counts[word_index][i], self.target.values[word_index].appear[i],\
+                print self.virtual_counts[word_index][i], self.target.values[word_index].appear[i], \
                     self.virtual_counts[word_index][i] - self.target.values[word_index].appear[i]
                 b += (self.virtual_counts[word_index][i] - self.target.values[word_index].appear[i]) ** 2
         print a * b
@@ -276,10 +277,11 @@ class KnowledgeBaseLearner:
         for word_index in self.vs:
             dom = self.kb.values[self.kb.words.index(self.target.words[word_index])].dom
             c = float(dom[0]) / float(dom[0] + dom[1])
-            print self.target.words[word_index], dom, c, self.virtual_counts[word_index], self.starting_points[word_index]
+            print self.target.words[word_index], dom, c, self.virtual_counts[word_index], self.starting_points[
+                word_index]
             b += (float(self.virtual_counts[word_index][0]) - c * float(self.starting_points[word_index][0])) ** 2
             b += (float(self.virtual_counts[word_index][1]) - (1 - c) * float(self.starting_points[word_index][1])) ** 2
-            print (float(self.virtual_counts[word_index][0]) - c * float(self.starting_points[word_index][0])),\
+            print (float(self.virtual_counts[word_index][0]) - c * float(self.starting_points[word_index][0])), \
                 (float(self.virtual_counts[word_index][1]) - (1 - c) * float(self.starting_points[word_index][1]))
             print '---------------------'
         print a * b

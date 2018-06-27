@@ -1,6 +1,6 @@
 from ..components import KnowledgeMiner, KnowledgeBasedLearner, TargetTask, Test, CloseDomain
 
-dataPath = 'sample_data/acl2015_nb_100_5_test'
+dataPath = 'sample_data/abc_1'
 close_domain_path = 'sample_data/stat/1523723936697'
 
 km = KnowledgeMiner.KnowledgeMiner(dataPath)

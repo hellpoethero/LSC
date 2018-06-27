@@ -16,12 +16,12 @@ class KnowledgeMiner:
     def set_close_kb(self, sort_domains, num):
         pis = PastInformationStore.PastInformationStore()
         with open('C:/Users/dennis hell/Desktop/LSC/close_domain.txt', 'a') as close_domain_file:
-            close_domain_file.write('domain: ' + self.pis.tasks[self.current_task_index].name + '\n')
+            # close_domain_file.write('domain: ' + self.pis.tasks[self.current_task_index].name + '\n')
             for i in range(0, num):
                 pis.tasks.append(self.pis.tasks[sort_domains[i]])
                 # print self.pis.tasks[sort_domains[i]].name
-                close_domain_file.write(self.pis.tasks[sort_domains[i]].name + '\n')
-            close_domain_file.write('----------')
+                # close_domain_file.write(self.pis.tasks[sort_domains[i]].name + '\n')
+            # close_domain_file.write('----------')
             self.close_kb = KnowledgeBase.KnowledgeBase()
             self.close_kb.convert(pis)
 
