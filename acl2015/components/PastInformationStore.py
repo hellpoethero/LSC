@@ -9,7 +9,7 @@ class PastInformationStore:
 
     def read_from_folder(self, folder_name):
         for subFolderName in os.listdir(folder_name):
-            filename = folder_name + "/" + subFolderName+"/"+subFolderName
+            filename = folder_name + "/" + subFolderName + "/" + subFolderName
             self.read_from_sub_folder(filename)
         print 'number of task: ', len(self.tasks)
 

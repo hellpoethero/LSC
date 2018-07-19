@@ -11,21 +11,24 @@ class Task:
         self.label_counts = [0, 0]
         self.label_prob = []
 
-    def import_target(self, docs, words):
+    def import_target(self, docs):
         self.docs = docs
-        self.words = words
-        for word in words:
-            value = WordValue()
-            self.values.append(value)
 
         for doc in docs:
-            if doc.label == 'pos':
+            label_num = 0
+            if doc.label == '__label__pos':
                 label_num = 0  # positive label
-            elif doc.label == 'neg':
+            elif doc.label == '__label__neg':
                 label_num = 1  # negative label
             self.label_counts[label_num] += 1
             for word in doc.words:
-                self.values[int(word)].appear[label_num] += 1
+                if word != '':
+                    if word not in self.words:
+                        value = WordValue()
+                        self.words.append(word)
+                        self.values.append(value)
+                    word_index = self.words.index(word)
+                    self.values[word_index].appear[label_num] += 1
 
         self.calculate_prob()
         self.label_prob = [float(self.label_counts[0]) / float(self.label_counts[0] + self.label_counts[1]),
@@ -82,7 +85,7 @@ class Task:
             if len(line.rstrip().split("\t")) > 1:
                 label = line.rstrip().split("\t")[0]
                 if label != '__label__neu':
-                    sentence = line.rstrip().split("\t")[1]
+                    sentence = line.rstrip().split("\t")[1].rstrip()
                     doc = Document.Document(sentence, label)
                     self.docs.append(doc)
                     temp_txt.append(doc)
@@ -98,9 +101,9 @@ class Task:
                                 value = WordValue()
                                 self.words.append(word)
                                 self.values.append(value)
-                            self.values[int(word)].appear[label_num] += 1
-
-        pass
+                            word_index = self.words.index(word)
+                            self.values[word_index].appear[label_num] += 1
+        self.docs_set.append(temp_txt)
 
     def calculate_prob(self):
         total_appear = [0, 0]

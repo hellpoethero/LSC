@@ -1,9 +1,11 @@
 class Document:
     def __init__(self, sentence, label):
+        self.words = []
         if len(sentence) > 0:
-            self.words = sentence.split(' ')
-        else:
-            self.words = []
+            words = sentence.rstrip().split(' ')
+            for word in words:
+                if word != '':
+                    self.words.append(word)
         self.sentence = sentence
         self.label = label
         pass

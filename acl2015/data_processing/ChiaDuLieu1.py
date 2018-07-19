@@ -2,8 +2,8 @@ import os
 from random import shuffle
 
 fold = 5
-inputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100"
-outputFolder = "G:/Hoc tap/NCKH/KT Lab/LifeLongLearning/data/abc_100_1"
+inputFolder = "sample_data/180709_2_100"
+outputFolder = "sample_data/180709_2_100_split"
 inputData = []
 inputName = []
 outputFiles = []
@@ -26,14 +26,14 @@ for data in inputData:
     for i in range(0, fold):
         size = len(data) / fold
         test_data = data[i * size:(i + 1) * size]
-        train_data = data[0:i * size] + data[(i + 1) * size:len(data)]
+        # train_data = data[0:i * size] + data[(i + 1) * size:len(data)]
 
         test_output = ""
         train_output = ""
         for line in test_data:
             test_output += line
-        for line in train_data:
-            train_output += line
+        # for line in train_data:
+        #     train_output += line
 
         if not os.path.exists(outputFolder + "/" + inputName[index]):
             os.makedirs(outputFolder + "/" + inputName[index])
@@ -42,7 +42,7 @@ for data in inputData:
                   "a") as outputFile:
             outputFile.write(test_output)
 
-        with open(outputFolder + "/" + inputName[index] + "/" + inputName[index] + "_train_" + str(i) + ".txt",
-                  "a") as outputFile:
-            outputFile.write(train_output)
+        # with open(outputFolder + "/" + inputName[index] + "/" + inputName[index] + "_train_" + str(i) + ".txt",
+        #           "a") as outputFile:
+        #     outputFile.write(train_output)
     index += 1

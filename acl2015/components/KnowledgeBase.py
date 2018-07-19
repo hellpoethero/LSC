@@ -26,7 +26,7 @@ class KnowledgeBase:
                 elif values_task[i].prob[0] < values_task[i].prob[1]:
                     value.dom[1] += 1
                 i += 1
-        print "Init Knowledge Base"
+        # print "Init Knowledge Base"
 
 
 class WordKnowledge:
